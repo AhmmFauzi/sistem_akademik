@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
-        /* ===== BASE ===== */
+       
         body {
             background: #F4F7FE !important; 
             font-family: 'Segoe UI', sans-serif;
@@ -17,7 +17,6 @@
             overflow-y: auto !important; 
         }
 
-        /* ===== SIDEBAR ===== */
         .sidebar {
             width: 250px;
             height: 100vh;
@@ -33,7 +32,6 @@
 
         .logo { font-weight: bold; font-size: 18px; }
 
-        /* ===== MENU ===== */
         .menu a {
             display: block;
             padding: 12px;
@@ -55,48 +53,47 @@
 
         .modal-backdrop { display: none !important; }
 
-        /* Custom Pagination UI */
-.pagination {
-    gap: 5px;
-}
 
-.pagination .page-link {
-    border-radius: 8px !important;
-    color: #5D5FEF; /* Warna ungu dashboard kamu */
-    border: none;
-    background: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    padding: 8px 14px;
-    font-size: 14px;
-}
+        .pagination {
+            gap: 5px;
+        }
 
-.pagination .page-item.active .page-link {
-    background: linear-gradient(135deg, #5D5FEF, #EF5DA8) !important;
-    color: white !important;
-    font-weight: bold;
-}
+        .pagination .page-link {
+            border-radius: 8px !important;
+            color: #5D5FEF; 
+            border: none;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            padding: 8px 14px;
+            font-size: 14px;
+        }
 
-.pagination .page-link:hover {
-    background: rgba(93, 95, 239, 0.1);
-    color: #5D5FEF;
-}
+        .pagination .page-item.active .page-link {
+            background: linear-gradient(135deg, #5D5FEF, #EF5DA8) !important;
+            color: white !important;
+            font-weight: bold;
+        }
 
-/* Menyembunyikan teks "Showing X to X entries" yang terlalu besar */
-nav .flex.justify-between.flex-1.sm\:hidden, 
-nav p.text-sm.text-gray-700.leading-5 {
-    display: none !important;
-}
+        .pagination .page-link:hover {
+            background: rgba(93, 95, 239, 0.1);
+            color: #5D5FEF;
+        }
 
-.admin-profile-box {
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
+        nav .flex.justify-between.flex-1.sm\:hidden, 
+        nav p.text-sm.text-gray-700.leading-5 {
+            display: none !important;
+        }
 
-.admin-profile-box:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(93, 95, 239, 0.15) !important;
-    border-color: #5D5FEF !important;
-}
+        .admin-profile-box {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .admin-profile-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(93, 95, 239, 0.15) !important;
+            border-color: #5D5FEF !important;
+        }
     </style>
 </head>
 <body>
@@ -153,7 +150,6 @@ nav p.text-sm.text-gray-700.leading-5 {
 </div>
 
 <script>
-    // 1. Fungsi Konfirmasi Logout dengan SweetAlert
     function confirmLogout() {
         Swal.fire({
             title: 'Yakin ingin keluar?',
@@ -167,13 +163,11 @@ nav p.text-sm.text-gray-700.leading-5 {
             reverseButtons: true
         }).then((result) => {
             if (result.isConfirmed) {
-                // Langsung redirect ke URL logout
                 window.location.href = "{{ url('/logout') }}";
             }
         });
     }
 
-    // 2. Script Pembersih Layar Gelap
     document.addEventListener("DOMContentLoaded", function() {
         const removeBackdrops = () => {
             const backdrops = document.querySelectorAll('.modal-backdrop, .sidebar-overlay, .fade.show');

@@ -9,14 +9,13 @@ class JurusanController extends Controller
 {
     public function index(Request $request)
     {
-        // UPDATE: Ditambahkan orderBy agar urut abjad
+
         $query = Jurusan::orderBy('nama_jurusan', 'asc');
 
         if ($request->search) {
             $query->where('nama_jurusan', 'like', '%'.$request->search.'%');
         }
 
-        // Paginate 10 data
         $data = $query->paginate(10)->withQueryString();
 
         return view('jurusan.index', compact('data'));
@@ -40,7 +39,7 @@ class JurusanController extends Controller
 
     public function edit($id)
     {
-        // Menggunakan findOrFail agar jika ID tidak ada langsung 404 (lebih aman)
+        
         $data = Jurusan::findOrFail($id);
         return view('jurusan.edit', compact('data'));
     }

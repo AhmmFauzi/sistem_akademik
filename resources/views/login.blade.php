@@ -13,7 +13,6 @@
             position: relative;
         }
 
-        /* Background shape */
         .bg-shape {
             position: absolute;
             width: 600px;
@@ -67,7 +66,6 @@
 
 <body class="d-flex justify-content-center align-items-center">
 
-<!-- Background shapes -->
 <div class="bg-shape"></div>
 <div class="bg-shape2"></div>
 

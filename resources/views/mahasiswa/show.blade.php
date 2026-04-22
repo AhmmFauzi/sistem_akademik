@@ -60,7 +60,6 @@
 </div>
 
 <style>
-    /* Tambahan biar font lebih clean */
     body { background-color: #f8f9fa; }
     .card { background-color: #ffffff; }
 </style>

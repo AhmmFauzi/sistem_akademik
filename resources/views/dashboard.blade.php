@@ -152,7 +152,7 @@ if (lineCtx) {
             labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei'],
             datasets: [{
                 label: 'Mahasiswa',
-                data: [5, 10, 8, 15, 12], // dummy dulu
+                data: [5, 10, 8, 15, 12], 
                 borderColor: '#5D5FEF',
                 fill: false,
                 tension: 0.4

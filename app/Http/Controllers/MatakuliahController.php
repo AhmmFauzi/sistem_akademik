@@ -10,11 +10,10 @@ class MatakuliahController extends Controller
 {
   public function index(Request $request)
 {
-    // Kita join ke tabel jurusans agar bisa order berdasarkan nama_jurusan
     $query = Matakuliah::select('matakuliahs.*')
         ->join('jurusans', 'matakuliahs.id_jurusan', '=', 'jurusans.id_jurusan')
-        ->with('jurusan') // Tetap eager load untuk relasi
-        ->orderBy('jurusans.nama_jurusan', 'asc'); // Urut abjad JURUSAN
+        ->with('jurusan') 
+        ->orderBy('jurusans.nama_jurusan', 'asc'); 
 
     if ($request->search) {
         $query->where('nama_matakuliah', 'like', '%'.$request->search.'%');

@@ -46,7 +46,6 @@ Route::middleware('auth')->group(function () {
         $jumlahMahasiswa = Mahasiswa::count();
         $jumlahMatakuliah = Matakuliah::count();
 
-        // 🔥 Mahasiswa per jurusan
         $mahasiswaPerJurusan = DB::table('mahasiswas')
             ->join('jurusans', 'mahasiswas.id_jurusan', '=', 'jurusans.id_jurusan')
             ->select('jurusans.nama_jurusan', DB::raw('count(*) as total'))
