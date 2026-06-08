@@ -68,4 +68,23 @@ class MatakuliahController extends Controller
         Matakuliah::destroy($id);
         return redirect('/matakuliah');
     }
+
+// PRINT PDF
+public function print()
+{
+    $matakuliah = Matakuliah::with('jurusan')->get();
+
+    return view('matakuliah.print', compact('matakuliah'));
+}
+
+// EXPORT EXCEL
+public function exportExcel()
+{
+    $matakuliah = Matakuliah::with('jurusan')->get();
+
+    return response()
+        ->view('matakuliah.excel', compact('matakuliah'))
+        ->header('Content-Type', 'application/vnd.ms-excel')
+        ->header('Content-Disposition', 'attachment; filename=matakuliah.xls');
+}
 }

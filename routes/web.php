@@ -60,8 +60,24 @@ Route::middleware('auth')->group(function () {
         ));
     });
 
-    // CRUD 
+    // EXPORT EXCEL & PRINT PDF JURUSAN
+    Route::get('/jurusan/excel', [JurusanController::class, 'exportExcel'])
+    ->name('jurusan.excel');
+
+Route::get('/jurusan/print', [JurusanController::class, 'print'])
+    ->name('jurusan.print');
+
+    // EXPORT EXCEL & PRINT PDF JURUSAN
+Route::get('/jurusan/excel', [JurusanController::class, 'exportExcel']);
+Route::get('/jurusan/print', [JurusanController::class, 'print']);
+
+// EXPORT EXCEL & PRINT PDF MATAKULIAH
+Route::get('/matakuliah/excel', [MatakuliahController::class, 'exportExcel']);
+Route::get('/matakuliah/print', [MatakuliahController::class, 'print']);
+
+    // CRUD
     Route::resource('jurusan', JurusanController::class);
     Route::resource('mahasiswa', MahasiswaController::class);
     Route::resource('matakuliah', MatakuliahController::class);
 });
+

@@ -57,10 +57,29 @@ class JurusanController extends Controller
         return redirect('/jurusan');
     }
 
-    public function destroy($id)
+       public function destroy($id)
     {
         $data = Jurusan::findOrFail($id);
         $data->delete();
         return redirect('/jurusan');
+    }
+
+    // PRINT PDF
+    public function print()
+    {
+        $jurusan = Jurusan::all();
+
+        return view('jurusan.print', compact('jurusan'));
+    }
+
+    // EXPORT EXCEL
+    public function exportExcel()
+    {
+        $jurusan = Jurusan::all();
+
+        return response()
+            ->view('jurusan.excel', compact('jurusan'))
+            ->header('Content-Type', 'application/vnd.ms-excel')
+            ->header('Content-Disposition', 'attachment; filename=jurusan.xls');
     }
 }

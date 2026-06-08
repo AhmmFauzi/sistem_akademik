@@ -10,21 +10,31 @@
         <h5>Daftar Jurusan</h5>
 
         <div class="d-flex gap-2">
-            {{-- 🔍 SEARCH --}}
-            <form method="GET" action="/jurusan">
-                <input 
-                    type="text" 
-                    name="search" 
-                    class="form-control" 
-                    placeholder="Cari..."
-                    value="{{ request('search') }}"
-                >
-            </form>
 
-            <a href="{{ url('/jurusan/create') }}" class="btn btn-primary">
-                + Tambah Jurusan
-            </a>
-        </div>
+    <a href="{{ url('/jurusan/excel') }}" class="btn btn-success">
+        Export Excel
+    </a>
+
+    <a href="{{ url('/jurusan/print') }}" target="_blank" class="btn btn-danger">
+        Print PDF
+    </a>
+
+    {{-- 🔍 SEARCH --}}
+    <form method="GET" action="/jurusan">
+        <input
+            type="text"
+            name="search"
+            class="form-control"
+            placeholder="Cari..."
+            value="{{ request('search') }}"
+        >
+    </form>
+
+    <a href="{{ url('/jurusan/create') }}" class="btn btn-primary">
+        + Tambah Jurusan
+    </a>
+
+</div>
     </div>
 
     <table class="table table-hover align-middle">

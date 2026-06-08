@@ -11,21 +11,31 @@
     <h5>Daftar Matakuliah</h5>
 
     <div class="d-flex gap-2">
-        {{-- 🔍 FORM SEARCH --}}
-        <form method="GET" action="/matakuliah">
-            <input 
-                type="text" 
-                name="search" 
-                class="form-control" 
-                placeholder="Cari..."
-                value="{{ request('search') }}"
-            >
-        </form>
 
-        <a href="{{ url('/matakuliah/create') }}" class="btn btn-primary">
-            + Tambah Matakuliah
-        </a>
-    </div>
+    <a href="{{ url('/matakuliah/excel') }}" class="btn btn-success">
+        Export Excel
+    </a>
+
+    <a href="{{ url('/matakuliah/print') }}" target="_blank" class="btn btn-danger">
+        Print PDF
+    </a>
+
+    {{-- 🔍 FORM SEARCH --}}
+    <form method="GET" action="/matakuliah">
+        <input 
+            type="text" 
+            name="search" 
+            class="form-control" 
+            placeholder="Cari..."
+            value="{{ request('search') }}"
+        >
+    </form>
+
+    <a href="{{ url('/matakuliah/create') }}" class="btn btn-primary">
+        + Tambah Matakuliah
+    </a>
+
+</div>
 
 </div>
 
